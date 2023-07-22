@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
         "reduxjs"
-    ]
+    ],
+    "files.exclude": {
+        "**/*.meta": true
+      }
 }
