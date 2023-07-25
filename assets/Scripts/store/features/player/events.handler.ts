@@ -1,8 +1,11 @@
 import { EventHandlerEpic } from "../../epic.type";
-import { filter,map } from 'rxjs/operators'
+
+import rob from 'redux-observable'
+import rxjs from 'rxjs'
+const { filter, map } = rxjs
 import { playerJumpEndEvent } from "./events";
 import { checkGameResultCommand } from "../game/commands";
-import { combineEpics } from "redux-observable";
+const { combineEpics } = rob
 const playerJumpEndEventHandler: EventHandlerEpic = actions$ =>
     actions$.pipe(
         filter(playerJumpEndEvent.match),

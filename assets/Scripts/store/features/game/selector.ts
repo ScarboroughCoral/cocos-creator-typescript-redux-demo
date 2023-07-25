@@ -1,4 +1,5 @@
-import { createSelector } from "@reduxjs/toolkit";
+import rtk from "@reduxjs/toolkit";
+const { createSelector } = rtk
 import { RootState } from "../..";
 
 export const selectGame = (state: RootState) => state.game

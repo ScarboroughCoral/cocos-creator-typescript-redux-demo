@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import rtk from "@reduxjs/toolkit";
+const { createSlice } = rtk
 import { GameState, RoadBlock } from "./entity";
 import { gameLoadSuccessEvent, gameOverEvent, gameStartedEvent } from "./events";
 type State = {

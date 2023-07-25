@@ -1,7 +1,6 @@
-import { _decorator, CCInteger, Component, instantiate, Label, Node, Prefab, randomRangeInt, Vec3 } from 'cc';
-import { BLOCK_SIZE, GameState } from './constant';
+import { _decorator, Component, instantiate, Label, Node, Prefab, randomRangeInt, Vec3 } from 'cc';
+import { BLOCK_SIZE } from './constant';
 import { PlayerController } from './PlayerController';
-import { Events } from './events';
 import { store } from './store';
 import { loadGameCommand, startGameCommand } from './store/features/game/commands';
 import { addAppListener } from './store/listenerMiddleware';
@@ -23,16 +22,6 @@ export class GameManager extends Component {
     @property({type: Label}) 
     public stepsLabel: Label|null = null; // 计步器
     start() {
-        this.init()
-    }
-
-    update(deltaTime: number) {
-
-    }
-    private init() {
-        if (this.startMenu) {
-            this.startMenu.active = true
-        }
         store.dispatch(addAppListener ({
             actionCreator: gameLoadSuccessEvent,
             effect: (action) => {
@@ -46,12 +35,6 @@ export class GameManager extends Component {
                 })
             }
         }))
-        store.dispatch(loadGameCommand())
-        if (this.playerCtrl) {
-            this.playerCtrl.setInputActive(false)
-            this.playerCtrl.node.setPosition(Vec3.ZERO)
-            this.playerCtrl.reset()
-        }
         store.dispatch(addAppListener({
             actionCreator: gameStartedEvent,
             effect: () => {
@@ -68,12 +51,6 @@ export class GameManager extends Component {
                 }, 0.1);
             }
         }))
-        this.playerCtrl?.node.on(Events.JumpEnd,(moveSteps: number, currentBlock: RoadBlock) => {
-            store.dispatch(playerJumpEndEvent({
-                moveSteps,
-                currentBlock
-            }))
-        }, this)
         store.dispatch(addAppListener({
             actionCreator: playerJumpEndEvent,
             effect: action => {
@@ -83,6 +60,28 @@ export class GameManager extends Component {
                 }
             }
         }))
+        store.dispatch(addAppListener({
+            actionCreator: gameOverEvent,
+            effect: () => {
+                this.init()
+            }
+        }))
+        this.init()
+    }
+
+    update(deltaTime: number) {
+
+    }
+    private init() {
+        if (this.startMenu) {
+            this.startMenu.active = true
+        }
+        if (this.playerCtrl) {
+            this.playerCtrl.setInputActive(false)
+            this.playerCtrl.node.setPosition(Vec3.ZERO)
+            this.playerCtrl.reset()
+        }
+        store.dispatch(loadGameCommand())
     }
     onStartButtonClicked() {
         store.dispatch(startGameCommand())

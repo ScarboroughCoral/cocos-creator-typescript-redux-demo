@@ -6,6 +6,6 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
-    "redux-observable": "2.0.0-rc.2"
+    "redux-observable": "^2.0.0"
   }
 }

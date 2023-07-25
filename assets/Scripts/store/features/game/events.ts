@@ -1,4 +1,5 @@
-import { createAction } from "@reduxjs/toolkit";
+import rtk from "@reduxjs/toolkit";
+const { createAction } = rtk
 import { RoadBlock } from "./entity";
 
 type GameLoadSuccessEventArgs = {
@@ -13,3 +14,8 @@ type GameOverEvent = {
     passed: boolean // 是否通关了
 }
 export const gameOverEvent = createAction<GameOverEvent>('gameOverEvent')
+
+type StartGameFailedEventArgs = {
+    reason: string
+}
+export const startGameFailedEvent = createAction<StartGameFailedEventArgs>('startGameFailedEvent')

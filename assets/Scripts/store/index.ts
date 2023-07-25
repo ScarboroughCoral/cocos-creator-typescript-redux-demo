@@ -1,11 +1,14 @@
-import { AnyAction, configureStore } from '@reduxjs/toolkit'
-import { createEpicMiddleware } from 'redux-observable'
+import rtk, { AnyAction } from "@reduxjs/toolkit";
+const { configureStore } = rtk
+import rob from 'redux-observable'
+const { createEpicMiddleware } = rob
 import { rootEpic, rootReducer } from './features'
+import { listenerMiddleware } from "./listenerMiddleware";
 // ...
 const epicMiddleware = createEpicMiddleware<AnyAction, AnyAction, any>()
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: getDefaultMiddleware => [...getDefaultMiddleware({ thunk: false}), epicMiddleware]
+  middleware: getDefaultMiddleware => [...getDefaultMiddleware({ thunk: false}), epicMiddleware, listenerMiddleware.middleware]
 })
 
 epicMiddleware.run(rootEpic)

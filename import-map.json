@@ -1,0 +1,7 @@
+{
+    "imports": {
+        "rxjs": "./node_modules/rxjs/dist/bundles/rxjs.umd.js",
+        "@reduxjs/toolkit": "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.cjs.production.min.js",
+        "redux-observable": "./node_modules/redux-observable/dist/cjs/index.js"
+    }
+}

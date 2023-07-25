@@ -1,8 +1,8 @@
 import { _decorator, Component, EventMouse, Input, input, Node, Vec3, Animation, EventTouch } from 'cc';
 import { BLOCK_SIZE } from './constant';
-import { Events } from './events';
 import { store } from './store';
 import { selectGameRoad } from './store/features/game/selector';
+import { playerJumpEndEvent } from './store/features/player/events';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerController')
@@ -87,7 +87,10 @@ export class PlayerController extends Component {
         this.curMoveSteps += step
     }
     onOnceJumpEnd() {
-        this.node.emit(Events.JumpEnd, this.curMoveSteps, selectGameRoad(store.getState())[this.curMoveSteps])
+        store.dispatch(playerJumpEndEvent({
+            moveSteps: this.curMoveSteps,
+            currentBlock: selectGameRoad(store.getState())[this.curMoveSteps]
+        }))
     }
 }
 

@@ -1,6 +1,8 @@
-import { combineReducers } from "@reduxjs/toolkit";
+import rtk from "@reduxjs/toolkit";
+const { combineReducers } = rtk
 import { gameSlice } from "./game";
-import { combineEpics } from "redux-observable";
+import rob from 'redux-observable'
+const { combineEpics } = rob
 import { gameCommandImplEpics } from "./game/commands.impl";
 import { playerEventHandlerEpics } from "./player/events.handler";
 

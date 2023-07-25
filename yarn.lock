@@ -24,10 +24,10 @@ immer@^9.0.21:
   resolved "https://registry.npmmirror.com/immer/-/immer-9.0.21.tgz#1e025ea31a40f24fb064f1fef23e931496330176"
   integrity sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==
 
-redux-observable@2.0.0-rc.2:
-  version "2.0.0-rc.2"
-  resolved "https://registry.npmmirror.com/redux-observable/-/redux-observable-2.0.0-rc.2.tgz#a6a0354ae93dbca42a3d5778432bee84ccf01fb9"
-  integrity sha512-IUaAW/maqnOQURpvLCWf2c1LrCp4hZuNFiJarOg3ev1XUPIAQYCmdQ7LpVfVIyrg1qDZUrPJAewqy3VVmHOWBQ==
+redux-observable@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmmirror.com/redux-observable/-/redux-observable-2.0.0.tgz#4358bef2e924723a8b1ad0e835ccebb1612a6b9a"
+  integrity sha512-FJz4rLXX+VmDDwZS/LpvQsKnSanDOe8UVjiLryx1g3seZiS69iLpMrcvXD5oFO7rtkPyRdo/FmTqldnT3X3m+w==
   dependencies:
     rxjs "^7.0.0"
     tslib "~2.1.0"
@@ -62,9 +62,9 @@ rxjs@^7.0.0:
     tslib "^2.1.0"
 
 tslib@^2.1.0:
-  version "2.6.0"
-  resolved "https://registry.npmmirror.com/tslib/-/tslib-2.6.0.tgz#b295854684dbda164e181d259a22cd779dcd7bc3"
-  integrity sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==
+  version "2.6.1"
+  resolved "https://registry.npmmirror.com/tslib/-/tslib-2.6.1.tgz#fd8c9a0ff42590b25703c0acb3de3d3f4ede0410"
+  integrity sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==
 
 tslib@~2.1.0:
   version "2.1.0"
